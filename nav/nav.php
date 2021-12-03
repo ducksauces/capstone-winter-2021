@@ -11,16 +11,15 @@ if (isset($_SESSION['role'])) {
   }
 }
 if (isset($_SESSION['loggedIn'])) {
-  echo '<script type = "text/javascript">document.getElementById("loginbutton").style.display = "none"; document.getElementById("cartSummary").style.display = "block"; document.getElementById("registerbutton").style.display = "none"; document.getElementById("logoutbutton").style.display = "block"; document.getElementById("displayname").innerHTML = "' . $_SESSION['name'] . '"; document.getElementById("emaillabel").innerHTML = "' . $_SESSION['email'] . '"; </script>';
+  echo '<script type = "text/javascript">document.getElementById("loginbutton").style.display = "none"; document.getElementById("profilebutton").style.display = "block"; document.getElementById("cartSummary").style.display = "block"; document.getElementById("registerbutton").style.display = "none"; document.getElementById("logoutbutton").style.display = "block"; document.getElementById("displayname").innerHTML = "' . $_SESSION['name'] . '"; document.getElementById("emaillabel").innerHTML = "' . $_SESSION['email'] . '"; </script>';
 } else {
-  echo '<script type = "text/javascript">document.getElementById("loginbutton").style.display = "block"; document.getElementById("cartSummary").style.display = "none"; document.getElementById("registerbutton").style.display = "block"; document.getElementById("logoutbutton").style.display = "none";</script>';
+  echo '<script type = "text/javascript">document.getElementById("loginbutton").style.display = "block"; document.getElementById("profilebutton").style.display = "none";  document.getElementById("cartSummary").style.display = "none"; document.getElementById("registerbutton").style.display = "block"; document.getElementById("logoutbutton").style.display = "none";</script>';
 }
 
 ?>
-<script src="js/searchredirect.js"></script>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">Mountain Music</a>
+    <a class="navbar-brand" href="index.php"><img src="img/logo.png" width="60%" height="60%" class="d-inline-block align-top" alt=""></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,7 +48,7 @@ if (isset($_SESSION['loggedIn'])) {
       </ul>
 
       <form class="d-flex mx-auto" method = "post" id = "searchBar" action="results.php">
-        <input class="form-control me-4" type="search" placeholder="Search" id="search" aria-label="Search">
+        <input class="form-control me-4" type="text" placeholder="Search" id="search" name = "search" aria-label="Search">
         <input class="btn btn-outline-success" type="submit" value="Search"></button>
       </form>
 
@@ -62,6 +61,7 @@ if (isset($_SESSION['loggedIn'])) {
       </div>
       <div class="mr-auto">
         <h5 id="displayname" class="col text-right">Guest User</h5>
+        <div id="profilebutton" class="col text-right"><a class="text-decoration-none text-secondary text-right" href="profile.php" role="button">My Profile</a></div>
         <div id="loginbutton" class="col text-right"><a class="text-decoration-none text-secondary text-right" href="login.php" role="button">Log In</a></div>
         <div id="logoutbutton" class="col text-right"><a class="text-decoration-none text-secondary text-right" href="logout.php" role="button">Log Out</a></div>
         <div id="registerbutton" class="col text-right"><a class="text-decoration-none text-secondary text-right" href="register.php" role="button">Register</a></div>

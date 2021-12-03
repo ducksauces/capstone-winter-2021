@@ -9,7 +9,7 @@ $.ajax({
         datatype: 'JSON',
         success: function (data) {
             var results = JSON.parse(data);
-            console.log(Object.keys(results).length + " results");
+
             $.each(results, function(key, value){          
                 $("#events").append(generateHTML(value.name, value.photo, value.description) );
 
@@ -22,7 +22,7 @@ $.ajax({
 
 function generateHTML(title, photo, description)
 {
-    var html = "<div><img src='php/images/" + photo + "' class='img-fluid p-1' alt='' style='height: 200px; width:300px; float: left;'> <div><h2 style='float:left;'>"+ title + " </h2></div></div>";
+    var html = "<div class = 'card' style = 'width: 18rem;'> <img class = 'card-img-top' src = 'php/eventimages/"+ photo +"'> <div class = 'card-body'><h5 class = 'card-title'>"+ title +"</h5> <p class = 'card-text'>"+ description + "</p></div>"  ;
 
     return(html);
 

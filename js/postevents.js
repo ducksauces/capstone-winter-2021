@@ -4,7 +4,7 @@ $(document).ready(function(){
         document.getElementById("status").innerHTML = "Uploading...";
 
         var file = document.getElementById("imageFile").files;
-        console.log(file);
+
 
         var data = new FormData(this);
         data.append("imageFile", file)
@@ -27,7 +27,7 @@ $(document).ready(function(){
                 document.getElementById("status").innerHTML = err.responseText;
                 document.getElementById("status").classList.add("alert");
                 document.getElementById("status").classList.add("alert-success");
-                console.log(err.responseText);
+
             }
         }
         );
