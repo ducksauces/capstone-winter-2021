@@ -29,8 +29,8 @@
   });
 </script>
 
-<h2 class="m-5">Events</h2>
-<div class="container p-5">
+<h2 class="container mt-5">Events</h2>
+<div class="container">
   <div id = "events">
   </div>
 </div>

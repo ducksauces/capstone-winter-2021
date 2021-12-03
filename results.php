@@ -1,6 +1,5 @@
 <?php
   session_start();
-  
 ?>
 
 <!doctype html>
@@ -37,6 +36,7 @@
   <div class="row">
     <div class="col-2 m-3">
       <h3>Filters</h3>
+      <a href = 'javascript:void(0);' style = 'text-decoration: none;' onclick= 'load()'>Clear Filters</a>
       <h4>Brand</h2>
         <ul id="filters" style="list-style-type:none;">
         </ul>
@@ -51,26 +51,44 @@
         </h3>
 
 
-    <div class="row">
-      <div id="products" class = "row">
+        <div class="row">
+          <div id="products" class="row">
+          </div>
+        </div>
+
     </div>
+
+
+
   </div>
 
-</div>
+  <?php
+  include "php/connect.php";
+
+  // Search bar handler
+  if (isset($_POST['search'])) {
+    $search = $_POST['search'];
+    $command = "SELECT * FROM inventory WHERE name LIKE '%$search%' OR type LIKE '$search'";
+    $stmt = $dbh->prepare($command);
+    $stmt->execute();
+    $stuff = $stmt->fetchAll();
+    echo  "<script>search('" . json_encode($stuff) . "', '$search')</script>";
+  }
+  else
+  {
+    echo "<script>load()</script";
+  }
 
 
-
-</div>
-
+  ?>
 
 
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script async src="https://cdn.snipcart.com/themes/v3.2.1/default/snipcart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+  </script>
+  <div hidden id="snipcart" data-api-key="Mzk3NTJiZWQtYjI2YS00MDhhLTg0Y2ItNmIxYTc1NTEwODU3NjM3NjcxNjcxNjEyOTExNDU0"></div>
 
-<!-- Option 1: Bootstrap Bundle with Popper -->
-<script async src="https://cdn.snipcart.com/themes/v3.2.1/default/snipcart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
-</script>
-<div hidden id="snipcart" data-api-key="Mzk3NTJiZWQtYjI2YS00MDhhLTg0Y2ItNmIxYTc1NTEwODU3NjM3NjcxNjcxNjEyOTExNDU0"></div>
-
-</body>
+  </body>
 
 </html>

@@ -13,7 +13,7 @@
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.1/default/snipcart.css" />
 
-  <title>Mountain Music</title>
+  <title>Contact</title>
   <script src="js/jquery-3.6.0.min.js"></script>
   
 </head>
@@ -30,6 +30,17 @@
         $("#nav-placeholder").replaceWith(data);
     });
     </script>
+  <div class = 'container'>
+  <h1 class = "mt-5">Contact</h1>
+  <p>Mountain Music Inventory App by Brandon Boualavong</p>
+  <p>You can view the source code below. Contact information is included.</p>
+  <h4 class = "mt-5">Source Code</h4>
+  <a href = "https://github.com/ducksauces/capstone-winter-2021" class = "btn btn-dark">GitHub</a>
+
+  <h4 class = "mt-5">Contact Information</h4>
+  <p>Email: br.boualavong@gmail.com</p>
+  <p>Mohawk College: brandon.boualavong@mohawkcollege.ca</p>
+  </div>
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
 <script async src="https://cdn.snipcart.com/themes/v3.2.1/default/snipcart.js"></script>
